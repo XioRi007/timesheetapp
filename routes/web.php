@@ -21,7 +21,9 @@ Route::middleware('auth')->group((function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard')->middleware('can:view dashboard');
     Route::resource('clients', ClientController::class)->except('show');
-    }));
+    Route::resource('projects', ProjectController::class)->except('show');
+        
+}));
 
 
 require __DIR__ . '/auth.php';
