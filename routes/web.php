@@ -26,7 +26,7 @@ Route::middleware('auth')->group((function () {
     Route::get('/developers/{developer}/worklogs', [DeveloperController::class, 'worklogs'])
         ->middleware('can:worklogs,developer')
         ->name('developers.worklogs');
-        
+    Route::resource('worklogs', WorkLogController::class)->except('show');    
 }));
 
 
